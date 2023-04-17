@@ -1,0 +1,22 @@
+<div class="grid grid-cols-4 gap-5">
+  <div class="col-span-4 md:col-span-2 lg:col-span-1 rounded-3 border border-gray-400 py-3 px-3">
+    <app-tree [node]="treeData" (nodeClick)="selectedNode=$event"></app-tree>
+  </div>
+
+  <div class="col-span-4 md:col-span-2 lg:col-span-3 rounded-3 border border-gray-400 py-3 px-3 flex flex-col justify-center items-center gap-1">
+    <div *ngIf="treeInformation">
+      <div
+        class="flex items-center gap-3"
+        *ngFor="let item of treeInformation"
+      >
+        <span class="w-30 font-bold uppercase">{{item[0]}}</span>
+        <span>:</span>
+        <span>{{item[1]}}</span>
+      </div>
+    </div>
+
+    <div *ngIf="!treeInformation">
+      <span class="text-blue-900 font-bold">Select element type in tree to display information</span>
+    </div>
+  </div>
+</div>

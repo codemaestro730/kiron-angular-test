@@ -1,0 +1,10 @@
+<div class="tree">
+  <div *ngIf="node">
+    <p class="cursor-pointer hover:font-bold" (click)="onNodeClick(node)">- {{ node.type }}</p>
+    <div class="pl-4">
+      <div *ngFor="let item of node.children">
+        <app-tree [node]="item" (nodeClick)="onNodeClick($event)"></app-tree>
+      </div>
+    </div>
+  </div>
+</div>
